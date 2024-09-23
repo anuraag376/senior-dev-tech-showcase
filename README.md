@@ -88,7 +88,7 @@ An example payload for Rabbit could be the following
 ## Notes
 
 
-* Try to spend less than 6-8 hours for the core functionality (including RabbitMQ integration) and an additional 2 hours for the Elasticsearch component - you may cut features or spend more time.
+* Try to spend less than 3 hours for the core functionality (excluding RabbitMQ integration and the Elasticsearch component) - you may cut features or spend more time.
 * We are not assessing your ability to turn this around quickly - we all have lives and jobs to attend to.
 * When submitting the PR, commentary is appreciated.
 * For any area you choose to skip, or cannot complete, describe what you would do using psuedocode or comments in it's place
