@@ -16,7 +16,7 @@ This exercise is designed to examine your ability to;
 
 ## Tasks
 
-* Using Magento 2.4.6 Community (https://github.com/magento/magento2/releases/tag/2.4.6-p7) as your framework, create a new Magento 2 module named "PromotionalProducts" with the following components:
+* Using Magento 2.4.6 Community (https://github.com/magento/magento2/releases/tag/2.4.6-p7) as your framework, create a new Magento 2 module named "PromotionalProducts" with the following components
 
 
 #### Admin
@@ -34,7 +34,7 @@ This exercise is designed to examine your ability to;
 
 #### Unit Tests
 
-Write unit tests for the core functionality of the module, including:
+Write unit tests for the core functionality of the module, including
 
 * Testing the logic for calculating discounted prices
 * Validating promotion start/end dates
@@ -96,7 +96,7 @@ An example payload for Rabbit could be the following
 
 
 
-## Deliverables:
+## Deliverables
 
 #### a) Requirements Document
 
@@ -116,7 +116,7 @@ Provide a detailed requirements document outlining the expected functionality of
 * Instructions for setting up and testing the RabbitMQ integration
 * Instructions for setting up and testing the Elasticsearch integration
 
-## Evaluation Criteria:
+## Evaluation Criteria
 
 * Code quality and adherence to Magento 2 best practices
 * Completeness of implemented features
