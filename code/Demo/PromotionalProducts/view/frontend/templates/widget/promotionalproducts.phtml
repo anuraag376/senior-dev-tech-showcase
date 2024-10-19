@@ -1,0 +1,44 @@
+<?php
+// Retrieve the collection of promotional products
+$products = $block->getPromotionalProducts();
+?>
+
+<div class="promotional-products-list">
+    <?php if ($products->getSize()): ?>
+        <ul class="product-items">
+            <?php foreach ($products as $product): ?>
+                <li class="product-item">
+                    <!-- Product Image -->
+                    <a href="<?php echo $product->getProductUrl(); ?>">
+                        <?php
+                        // Get the product image or a placeholder if no image is found
+                        $productImage = $block->getImage($product, 'product_base_image');
+                        if ($productImage) {
+                            // Output the product image
+                            echo '<img src="' . $productImage->getImageUrl() . '" alt="' . $product->getName() . '"/>';
+                        } else {
+                            // Use a placeholder image if the product has no image
+                            echo '<img src="' . $block->getViewFileUrl('Magento_Catalog::images/product/placeholder/image.jpg') . '" alt="' . $product->getName() . '"/>';
+                        }
+                        ?>
+                    </a>
+
+                    <!-- Product Name -->
+                    <h2 class="product-item-name">
+                        <a href="<?php echo $product->getProductUrl(); ?>">
+                            <?php echo $product->getName(); // Output the product name ?>
+                        </a>
+                    </h2>
+
+                    <!-- Product Price -->
+                    <div class="product-item-price">
+                        <?php echo $product->getFinalPrice(); // Output the final price of the product ?>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <!-- Display message if no promotional products are available -->
+        <p><?php echo __('No promotional products at this time.'); ?></p>
+    <?php endif; ?>
+</div>

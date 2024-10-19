@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                grids_custom_index_list.grids_custom_index_list_data_source
+            </item>
+            <item name="deps" xsi:type="string">
+                grids_custom_index_list.grids_custom_index_list_data_source
+            </item>
+        </item>
+        <item name="spinner" xsi:type="string">grids_custom_index_columns</item>
+    </argument>
+    <dataSource name="grids_custom_index_list_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Demo_PromotionalProducts::grids_custom_dp</aclResource>
+        <dataProvider class="Demo\PromotionalProducts\Ui\Component\DataProvider\Custom"
+                      name="grids_custom_index_list_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+        <columnsControls name="columns_controls"/>
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="data" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">
+                        grids_custom_index_list.grids_custom_index_list.grids_custom_index_columns.ids
+                    </item>
+                    <item name="displayArea" xsi:type="string">bottom</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+            <action name="enable">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">enable</item>
+                        <item name="label" xsi:type="string" translate="true">Enable</item>
+                        <item name="url" xsi:type="url" path="grids/custom/massEnable"/>
+                    </item>
+                </argument>
+            </action>
+            <action name="disable">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">disable</item>
+                        <item name="label" xsi:type="string" translate="true">Disable</item>
+                        <item name="url" xsi:type="url" path="grids/custom/massDisable"/>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+
+    </listingToolbar>
+    <columns name="grids_custom_index_columns">
+        <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+        <column name="id">
+            <settings>
+                <label translate="true">ID</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="sku">
+            <settings>
+                <label translate="true">SKU</label>
+                <filter>text</filter>
+                <dataType>text</dataType>
+            </settings>
+        </column>
+        <column name="name">
+            <settings>
+                <label translate="true">Name</label>
+                <filter>textRange</filter>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="special_price">
+            <settings>
+                <label translate="true">Special Price</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="price">
+            <settings>
+                <label translate="true">Price</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="status">
+            <settings>
+                <label translate="true">Promotional Status</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Demo\PromotionalProducts\Ui\Component\Listing\Column\Actions"
+                       sortOrder="200">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+        </actionsColumn>
+    </columns>
+</listing>

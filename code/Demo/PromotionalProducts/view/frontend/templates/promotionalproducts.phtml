@@ -1,0 +1,39 @@
+<?php
+// Retrieve the promotional products collection
+$products = $block->getPromotionalProducts();
+?>
+
+<div class="promotional-products-list">
+    <?php if ($products->getSize()): ?>
+        <ul class="product-items">
+            <?php foreach ($products as $product): ?>
+                <li class="product-item">
+                    <!-- Product Image -->
+                    <a href="<?php echo $product->getProductUrl(); ?>">
+                        <?php
+                        // Get product image or use a placeholder if no image exists
+                        $productImage = $block->getImage($product, 'product_base_image');
+                        $imageUrl = $productImage ? $productImage->getImageUrl() : $block->getViewFileUrl('Magento_Catalog::images/product/placeholder/image.jpg');
+                        ?>
+                        <img src="<?php echo $imageUrl; ?>" alt="<?php echo $product->getName(); ?>"/>
+                    </a>
+
+                    <!-- Product Name -->
+                    <h2 class="product-item-name">
+                        <a href="<?php echo $product->getProductUrl(); ?>">
+                            <?php echo $product->getName(); // Display product name ?>
+                        </a>
+                    </h2>
+
+                    <!-- Product Price -->
+                    <div class="product-item-price">
+                        <?php echo $product->getFinalPrice(); // Display final price ?>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <!-- Message displayed if no promotional products are available -->
+        <p><?php echo __('No promotional products at this time.'); ?></p>
+    <?php endif; ?>
+</div>
